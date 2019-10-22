@@ -15,9 +15,10 @@
     <q-btn
       color="positive"
       class="full-width"
-      label="Continuar"
       size="lg"
-      @click="$router.push('registercnpj')" />
+      @click="$router.push('registercnpj')">
+        Continuar
+    </q-btn>
 
     <q-footer class="bg-white text-grey text-center q-pa-md">
       <div class="row q-gutter-sm">
@@ -45,6 +46,34 @@ export default {
       pass: '',
       confirm: ''
     }
+  },
+  mounted(){
+    this.$q.notify({
+      message: `Você está na tela onde mostra o fluxo de um usuário sem registro,
+      se quiser ir para a tela onde mostra como é de um CNPJ pré-cadastrado, clique em ok`,
+      timeout: 6000, // in milliseconds; 0 means no timeout
+      // type: 'positive',
+      // color: 'positive',
+      // textColor: 'black', // if default 'white' doesn't fit
+      icon: 'fas fa-hand-paper',
+      // or
+      //avatar: 'statics/boy-avatar.png',
+      closeBtn: true, // or string as button message e.g. 'dismiss'
+      actions: [
+        {
+          label: 'ir para pré-cadastro',
+          handler: () => {
+            this.$router.push('preregistered')
+          }
+        },
+        {
+          label: 'fechar',
+          handler: () => {
+            return
+          }
+        }
+      ]
+    })
   }
 }
 </script>

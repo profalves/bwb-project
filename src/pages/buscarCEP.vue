@@ -31,7 +31,14 @@
       icon="place"
       label="Minha localização"
       size="lg"
-      @click="gps" />
+      @click="gps"
+      v-if="!confirm" />
+
+    <div class="text-center text-weight-light">
+      {{endereco.logradouro}}<br />
+      {{endereco.bairro}} - {{endereco.cidade}}
+    </div>
+
 
     <q-btn
       color="positive"
@@ -49,16 +56,18 @@ export default {
   data(){
     return {
       cep: '',
-      confirm: false
+      confirm: false,
+      endereco: ''
     }
   },
   methods: {
     buscarCEP() {
-      this.$axios.get('http://api.postmon.com.br/v1/cep/' + this.cep)
+      this.$axios.get('https://api.postmon.com.br/v1/cep/' + this.cep)
       .then((res) => {
-        localStorage.setItem('endereco', JSON.stringify(res.data))
-        //this.$router.push('registrarendereco')
         this.confirm = true
+        this.endereco = res.data
+        localStorage.setItem('endereco', JSON.stringify(res.data))
+        // console.log(res)
       })
       .catch((e) => {
         console.log('ERRO: ', e.response)

@@ -48,11 +48,15 @@ module.exports = function (ctx) {
         'QScrollObserver',
         'QCard',
         'QCardSection',
-        'QCardActions'
+        'QCardActions',
+        'QTabs',
+        'QTab',
+        'QRouteTab'
       ],
 
       directives: [
-        'Ripple'
+        'Ripple',
+        'GoBack'
       ],
 
       // Quasar plugins
