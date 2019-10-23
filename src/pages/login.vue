@@ -1,36 +1,41 @@
 <template>
-  <q-page padding id="login">
-    <div class="text-center text-h5 q-my-xl">Login</div>
-    <q-input outlined v-model.trim="user" label="CNPJ ou Email" />
+  <q-page padding id="login" class="bg-default">
+    <div class="text-center text-h5 q-my-xl">Faça login</div>
+    <q-input outlined v-model.trim="user" label="Email" bg-color="white" />
     <br />
-    <q-input type="password" outlined v-model="pass" label="Senha" />
+    <q-input type="password" outlined v-model="pass" label="Senha" bg-color="white" />
     <br />
+    <q-btn flat outline class="full-width" size="lg">
+      <p class="text-caption">esqueci minha senha</p>
+    </q-btn>
     <q-btn
-      color="positive"
+      color="secondary"
       class="full-width"
-      label="Entrar"
+      label="Continuar"
       size="lg"
-      @click="$router.push('shop')" />
-    <div class="q-my-lg text-center text-subtitle1">Não tem conta?</div>
+      @click="$router.push('shop')"
+    />
+    <div class="q-my-lg text-center text-subtitle1">ou cadastre-se</div>
     <q-btn
-      color="positive"
-      class="full-width"
-      label="Cadastre-se"
+      color="secondary"
+      class="full-width q-mb-lg"
+      label="Cadastro"
       size="lg"
-      @click="$router.push('register')" />
+      @click="$router.push('login')"
+    />
   </q-page>
 </template>
 
 <script>
 export default {
-  name: 'Login',
-  data(){
+  name: "Login",
+  data() {
     return {
-      user: '',
-      pass: ''
-    }
+      user: "",
+      pass: ""
+    };
   }
-}
+};
 </script>
 
 <style>

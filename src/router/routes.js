@@ -22,6 +22,13 @@ const routes = [
     ]
   },
   {
+    path: '/requestaccess',
+    component: () => import('layouts/Logon.vue'),
+    children: [
+      { path: '', component: () => import('pages/requestAccess.vue') }
+    ]
+  },
+  {
     path: '/preregistered',
     component: () => import('layouts/Logon.vue'),
     children: [

@@ -67,17 +67,36 @@
     </q-page-container>
 
     <q-footer bordered class="bg-white text-primary">
-      <q-tabs
+      <!-- <q-tabs
         no-caps
         active-color="primary"
         indicator-color="transparent"
         class="text-grey"
         v-model="tab"
-      >
-        <q-tab name="images" label="Images" />
-        <q-tab name="videos" label="Videos" />
-        <q-tab name="articles" label="Articles" />
-      </q-tabs>
+      >-->
+      <div class="icons">
+        <div class="icon-nav">
+          <q-icon name="home" size="26px" />
+          <p class="icon-label">HOME</p>
+        </div>
+        <div class="icon-nav">
+          <q-icon name="category" size="26px" />
+          <p class="icon-label">CATEGORIAS</p>
+        </div>
+        <div class="icon-nav">
+          <q-icon name="ion-cart" size="26px" />
+          <p class="icon-label">CARRINHO</p>
+        </div>
+        <div class="icon-nav">
+          <q-icon name="mdi-brightness-percent" size="26px" />
+          <p class="icon-label">PROMOÇÕES</p>
+        </div>
+        <div class="icon-nav">
+          <q-icon name="menu" size="35px" />
+        </div>
+      </div>
+
+      <!-- </q-tabs> -->
     </q-footer>
   </q-layout>
 </template>
@@ -114,5 +133,24 @@ export default {
 }
 .main-footer {
   padding: 5px;
+}
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.icon-nav {
+  padding: 5px;
+  text-align: center;
+  color: grey;
+}
+.icon-nav > p {
+  margin: 0;
+}
+.icon-label {
+  font-size: 10px;
+}
+.q-page-container.q-layout__section--animate {
+  padding: 50px 0 !important;
 }
 </style>
