@@ -19,7 +19,15 @@
       </q-toolbar>
     </q-page-sticky>
 
-    <q-input outlined bottom-slots v-model="search" label="Busca..." bg-color="white" v-else>
+    <q-input
+      outlined
+      bottom-slots
+      v-model="search"
+      label="Busca..."
+      bg-color="white"
+      :class="$q.platform.is.ios ? 'q-mt-xl' : null"
+      v-else
+    >
       <template v-slot:append>
         <q-icon name="search" class="cursor-pointer" />
       </template>

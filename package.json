@@ -1,14 +1,16 @@
 {
   "name": "product.io",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
+  "description": "BWB app",
   "productName": "bwb",
-  "cordovaId": "org.cordova.quasar.app",
+  "cordovaId": "org.cordova.bwb.app",
   "author": "Rodrigo Alves <igo.sud@hotmail.com>",
   "private": true,
   "scripts": {
     "pwa": "quasar dev -m pwa",
     "dev": "quasar dev",
+    "dev:ios": "quasar dev -m cordova -T ios",
+    "dev:android": "quasar dev -m cordova -T android",
     "deploy": "quasar build -m pwa && cp -r dist/pwa/* public/ && firebase deploy",
     "start": "npm run dev",
     "start:pwa": "npm run pwa"

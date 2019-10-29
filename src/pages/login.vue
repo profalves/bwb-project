@@ -21,7 +21,7 @@
       class="full-width q-mb-lg"
       label="Cadastro"
       size="lg"
-      @click="$router.push('login')"
+      @click="$router.push('registercnpj')"
     />
   </q-page>
 </template>

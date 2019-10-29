@@ -1,5 +1,6 @@
 <template>
   <q-page padding id="register" class="bg-default">
+    <div class="q-mt-xl platform-ios-only"></div>
     <div class="text-center text-h5 q-my-md">Solicite seu acesso</div>
     <p class="text-center q-mb-xl">
       Ao cadastrar sua conta, você será capaz de comprar mais rápido,
@@ -19,7 +20,7 @@
       class="full-width"
       label="Cadastrar"
       size="lg"
-      @click="$router.push('login')"
+      @click="$router.push('preregistered')"
     />
   </q-page>
 </template>

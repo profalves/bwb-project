@@ -2,10 +2,10 @@
   <q-layout view="lHh Lpr lFf">
     <q-header class="bg-default text-grey">
       <q-toolbar>
-        <q-btn flat dense round aria-label="Menu" disable>
-          <!-- @click="leftDrawerOpen = !leftDrawerOpen" -->
-          <!-- <q-icon name="menu" /> -->
-        </q-btn>
+        <!-- <q-btn flat dense round aria-label="Menu" @click="leftDrawerOpen = !leftDrawerOpen disable>
+          <q-icon name="menu" />
+        </q-btn>-->
+        <q-btn flat dense round icon="ion-arrow-back" @click="$router.push('/')" />
 
         <q-toolbar-title class="text-weight-bolder text-center">Logo</q-toolbar-title>
 
@@ -15,7 +15,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" class="full-width" content-class="bg-grey-7">
+    <!-- <q-drawer v-model="leftDrawerOpen" class="full-width" content-class="bg-grey-7">
       <q-toolbar>
         <q-btn
           flat
@@ -60,30 +60,23 @@
           </div>
         </div>
       </q-footer>
-    </q-drawer>
+    </q-drawer>-->
 
     <q-page-container>
       <router-view />
     </q-page-container>
 
-    <q-footer bordered class="bg-white text-primary">
-      <!-- <q-tabs
-        no-caps
-        active-color="primary"
-        indicator-color="transparent"
-        class="text-grey"
-        v-model="tab"
-      >-->
+    <q-footer bordered class="bg-white text-primary" :class="$q.platform.is.ios ? 'q-pb-md' : null">
       <div class="icons">
         <div class="icon-nav">
           <q-icon name="home" size="26px" />
           <p class="icon-label">HOME</p>
         </div>
-        <div class="icon-nav">
+        <div class="icon-nav" @click="leftDrawerOpen = !leftDrawerOpen">
           <q-icon name="category" size="26px" />
           <p class="icon-label">CATEGORIAS</p>
         </div>
-        <div class="icon-nav">
+        <div class="icon-nav" @click="rightDrawerOpen = !rightDrawerOpen">
           <q-icon name="ion-cart" size="26px" />
           <p class="icon-label">CARRINHO</p>
         </div>
@@ -95,8 +88,6 @@
           <q-icon name="menu" size="35px" />
         </div>
       </div>
-
-      <!-- </q-tabs> -->
     </q-footer>
   </q-layout>
 </template>
@@ -121,7 +112,10 @@ export default {
     };
   },
   methods: {
-    openURL
+    openURL,
+    goBack() {
+      window.history.back();
+    }
   }
 };
 </script>

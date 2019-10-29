@@ -104,6 +104,10 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/produtoVender.vue') }
     ]
+  },
+  {
+    path: '/test',
+    component: () => import('pages/teste.vue'),
   }
 ]
 

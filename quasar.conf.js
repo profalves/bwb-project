@@ -52,7 +52,10 @@ module.exports = function (ctx) {
         'QTabs',
         'QTab',
         'QRouteTab',
-        'QDialog'
+        'QDialog',  
+        'QStepper',
+        'QStep',
+        'QStepperNavigation'
       ],
 
       directives: [
@@ -64,10 +67,10 @@ module.exports = function (ctx) {
       // Quasar plugins
       plugins: [
         'Notify'
-      ]
-
+      ],
+      cssAddon: true,
       // iconSet: 'ionicons-v4'
-      // lang: 'de' // Quasar language
+      lang: 'pt-br' // Quasar language
     },
 
     supportIE: false,
@@ -138,7 +141,9 @@ module.exports = function (ctx) {
     },
 
     cordova: {
-      // id: 'org.cordova.quasar.app'
+      id: 'org.cordova.bwb.app',
+      iosStatusBarPadding: true, // add the dynamic top padding on iOS mobile devices
+      backButtonExit: false, // Quasar handles app exit on mobile phone back button
       // noIosLegacyBuildFlag: true // uncomment only if you know what you are doing
     },
 
