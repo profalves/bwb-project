@@ -89,7 +89,7 @@ export default {
           {
             label: "usuário sem pré-cadastro",
             handler: () => {
-              this.$router.push("nonregistered");
+              this.$router.push("registercnpj");
             }
           },
           {

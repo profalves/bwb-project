@@ -44,6 +44,7 @@ module.exports = function (ctx) {
         'QSpace',
         'QExpansionItem',
         'QInput',
+        'QSelect',
         'QBanner',
         'QScrollObserver',
         'QCard',

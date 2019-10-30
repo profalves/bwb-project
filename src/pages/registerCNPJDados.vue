@@ -26,7 +26,7 @@
     ></q-input>
     <br />
 
-    <q-footer class="bg-transparent text-secondary text-center q-pa-md q-mb-lg">
+    <q-footer class="bg-default text-secondary text-center q-pa-md q-mb-lg">
       <div class="row q-gutter-sm q-mb-md">
         <div class="col">
           <q-icon name="fas fa-circle" />
