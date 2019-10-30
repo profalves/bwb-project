@@ -1,5 +1,7 @@
 # BWB App
 
+App powered by Quasar framework, based in Vuejs + Cordova.
+
 ## Developer mode
 
 #### PWA:
