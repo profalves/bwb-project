@@ -11,6 +11,8 @@
     "dev": "quasar dev",
     "dev:ios": "quasar dev -m cordova -T ios",
     "dev:android": "quasar dev -m cordova -T android",
+    "build:ios": "quasar build -m cordova -T ios",
+    "build:android": "quasar build -m cordova -T android",
     "deploy": "quasar build -m pwa && cp -r dist/pwa/* public/ && firebase deploy",
     "start": "npm run dev",
     "start:pwa": "npm run pwa"
