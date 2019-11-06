@@ -4,7 +4,16 @@
     <div class="text-center caption q-mb-md">Busca pelo CEP ou Localização</div>
     <div class="row">
       <div class="col">
-        <q-input square outlined v-model="endereco.cep" label="CEP" bg-color="white" />
+        <q-input
+          square
+          outlined
+          v-model="endereco.cep"
+          label="CEP"
+          bg-color="white"
+          @keyup.enter="findCEP"
+          @blur="findCEP"
+          hint="digite o CEP e aperte ENTER"
+        />
       </div>
       <div class="col-auto">
         <q-btn
@@ -20,13 +29,13 @@
     <br />
     <q-input outlined type="number" v-model="endereco.numero" label="Número" bg-color="white" />
     <br />
-    <q-input outlined v-model="endereco.ref" label="Referência" bg-color="white" />
+    <q-input outlined v-model="endereco.complemento" label="Referência" bg-color="white" />
     <br />
     <q-input outlined v-model="endereco.bairro" label="Bairro" bg-color="white" />
     <br />
     <q-select
       label="Estado"
-      v-model.number="endereco.estado"
+      v-model.number="endereco.uf"
       :options="estados"
       outlined
       bg-color="white"
@@ -35,7 +44,7 @@
     <q-select
       label="Cidade"
       filled
-      v-model="endereco.cidade"
+      v-model="endereco.localidade"
       use-input
       fill-input
       input-debounce="0"
@@ -91,12 +100,13 @@ export default {
       pesquisar,
       estados,
       endereco: {
-        cidade: null,
-        estado: null,
+        localidade: null,
+        uf: null,
         bairro: null,
         logradouro: null,
         numero: null,
-        ref: null
+        complemento: null,
+        cep: null
       },
       cidades: []
     };
@@ -115,6 +125,32 @@ export default {
     }
   },
   methods: {
+    findCEP() {
+      this.$axios
+        .get(`https://viacep.com.br/ws/${this.endereco.cep}/json/`)
+        .then(res => {
+          console.log("res: ", res.data);
+          this.endereco = res.data;
+          // let {
+          //   logradouro,
+          //   bairro,
+          //   cep,
+          //   complemento,
+          //   localidade,
+          //   uf
+          // } = res.data;
+          // this.endereco = {
+          //   cidade: localidade,
+          //   estado: uf,
+          //   bairro: bairro,
+          //   logradouro: logradouro,
+          //   ref: complemento
+          // };
+        })
+        .catch(e => {
+          console.log("e: ", e.response);
+        });
+    },
     async setEndereco() {
       await localStorage.setItem("endereco", JSON.stringify(this.endereco));
       await this.$router.push("registerreview");

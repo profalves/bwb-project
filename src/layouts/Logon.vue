@@ -13,7 +13,9 @@
     </q-header>
 
     <q-page-container>
-      <router-view />
+      <transition name="slide-left">
+        <router-view />
+      </transition>
     </q-page-container>
   </q-layout>
 </template>

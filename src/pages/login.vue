@@ -5,9 +5,8 @@
     <br />
     <q-input type="password" outlined v-model="pass" label="Senha" bg-color="white" />
     <br />
-    <q-btn flat outline class="full-width" size="lg">
-      <p class="text-caption">esqueci minha senha</p>
-    </q-btn>
+    <q-btn flat outline class="full-width q-mb-lg undelined" size="md" label="esqueci minha senha" />
+    <br />
     <q-btn
       color="secondary"
       class="full-width"
