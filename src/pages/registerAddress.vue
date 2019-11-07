@@ -13,6 +13,7 @@
           @keyup.enter="findCEP"
           @blur="findCEP"
           hint="digite o CEP e aperte ENTER"
+          :loading="loading"
         />
       </div>
       <div class="col-auto">
@@ -108,7 +109,8 @@ export default {
         complemento: null,
         cep: null
       },
-      cidades: []
+      cidades: [],
+      loading: false
     };
   },
   computed: {
@@ -126,26 +128,13 @@ export default {
   },
   methods: {
     findCEP() {
+      this.loading = true;
       this.$axios
         .get(`https://viacep.com.br/ws/${this.endereco.cep}/json/`)
         .then(res => {
-          console.log("res: ", res.data);
+          // console.log("res: ", res.data);
+          this.loading = false;
           this.endereco = res.data;
-          // let {
-          //   logradouro,
-          //   bairro,
-          //   cep,
-          //   complemento,
-          //   localidade,
-          //   uf
-          // } = res.data;
-          // this.endereco = {
-          //   cidade: localidade,
-          //   estado: uf,
-          //   bairro: bairro,
-          //   logradouro: logradouro,
-          //   ref: complemento
-          // };
         })
         .catch(e => {
           console.log("e: ", e.response);
